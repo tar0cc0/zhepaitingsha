@@ -1,0 +1,119 @@
+"use strict";
+
+// A number suit has 36 tiles in total
+const allTiles = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+  1, 2, 3, 4, 5, 6, 7, 8, 9,
+];
+
+function generateWaitingTiles() {
+  let numOfTiles = 13;
+
+  while (true) {
+    // Randomly sample tiles
+    let sampleTiles = _.sampleSize(allTiles, numOfTiles);
+
+    let waitedTiles = getWaitedTiles(sampleTiles);
+    if (waitedTiles.length > 0) return [ sampleTiles, waitedTiles ];
+  }
+}
+
+function getWaitedTiles(tiles) {
+  let waitedTiles = [];
+
+  // For each tile from 1 to 9, insert it into sample tiles and check if it's winning
+  for (let tile = 1; tile <= 9; tile++) {
+    // Ignore tile if it already appeared 4 times
+    if (tiles.filter(val => val == tile).length >= 4) continue;
+
+    tiles.push(tile);
+    tiles.sort();
+    if (isWin(tiles)) waitedTiles.push(tile);
+    tiles.splice(tiles.indexOf(tile), 1);
+  }
+
+  return waitedTiles;
+}
+
+// Assume the tiles are already sorted
+function isWin(tiles) {
+  // Check for 7 pairs first
+  if (is7pairs(tiles)) return true;
+
+  // Remove a pair first, and then check for triplets and sequences
+  let availablePairs = getAvailablePairs(tiles);
+  for (let i = 0; i < availablePairs.length; i++) {
+    let tilesCopy = tiles.slice();
+    tilesCopy.splice(tilesCopy.indexOf(availablePairs[i]), 1);
+    tilesCopy.splice(tilesCopy.indexOf(availablePairs[i]), 1);
+    if (isTripletsAndSequences(tilesCopy)) return true;
+  }
+
+  return false;
+}
+
+function is7pairs(tiles) {
+  const numPairs = 7;
+  if (tiles.length != 2 * numPairs) return false;
+  for (let i = 0; i < numPairs; i++) {
+    if (tiles[2 * i] != tiles[2 * i + 1]) return false;
+  }
+  return true;
+}
+
+function getAvailablePairs(tiles) {
+  let availablePairs = [];
+
+  for (let i = 0; i < tiles.length; i++) {
+    if (i > 0 && tiles[i] == tiles[i - 1]) continue; // Skip duplicates
+
+    let currentTile = tiles[i];
+    if (tiles.filter(val => val == currentTile).length >= 2) {
+      availablePairs.push(currentTile);
+    }
+  }
+
+  return availablePairs;
+}
+
+function isTripletsAndSequences(tiles) {
+  if (tiles.length == 0) return true;
+  if (tiles.length < 3) return false;
+
+  let firstTile = tiles[0];
+
+  // Check triplet
+  if (firstTile == tiles[1] && firstTile == tiles[2]) {
+    // Remove the triplet, then check recursively
+    let tilesCopy = tiles.slice();
+    tilesCopy.splice(0, 3);
+
+    if (isTripletsAndSequences(tilesCopy)) return true;
+  }
+
+  // Check sequence
+  if (tiles.includes(firstTile + 1) && tiles.includes(firstTile + 2)) {
+    // Remove the sequence, then check recursively
+    let tilesCopy = tiles.slice();
+    tilesCopy.splice(0, 1);
+    tilesCopy.splice(tilesCopy.indexOf(firstTile + 1), 1);
+    tilesCopy.splice(tilesCopy.indexOf(firstTile + 2), 1);
+
+    if (isTripletsAndSequences(tilesCopy)) return true;
+  }
+
+  return false;
+}
+
+// Unused
+function generateWinningTiles() {
+  let numOfTiles = 14;
+
+  while (true) {
+    let sampleTiles = _.sampleSize(allTiles, numOfTiles);
+    sampleTiles.sort();
+    if (isWin(sampleTiles)) return sampleTiles;
+  }
+}
