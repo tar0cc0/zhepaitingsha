@@ -20,7 +20,8 @@ function generateWaitingTiles() {
   }
 }
 
-function getWaitedTiles(tiles) {
+// Export for unit tests
+export function getWaitedTiles(tiles) {
   let waitedTiles = [];
 
   // For each tile from 1 to 9, insert it into sample tiles and check if it's winning
