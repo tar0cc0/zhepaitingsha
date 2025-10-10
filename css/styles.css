@@ -1,0 +1,151 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #222;
+  color: #fff;
+  padding: 16px 24px;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+button {
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+button:disabled {
+  background: #b0b8c1;
+  color: #f0f0f0;
+  cursor: default;
+  opacity: 0.7;
+}
+
+button:disabled:hover {
+  background: #b0b8c1;
+}
+
+button:hover {
+  background: #357ab8;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 24px;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  margin-top: 0;
+}
+
+a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+#reveal-waited-tiles, #next-puzzle {
+  margin-bottom: 20px;
+}
+
+#waiting-tiles {
+  margin: 20px 0;
+}
+
+#waited-tiles {
+  margin-bottom: 20px;
+}
+
+.tile-img {
+  width: 56px;
+  height: 80px;
+}
+
+.options-container {
+  display: inline-flex;
+  margin-top: 80px;
+}
+
+input.number-of-tiles-input {
+  accent-color: #4a90e2;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+input.number-of-tiles-input:disabled {
+  accent-color: #b0b8c1;
+  cursor: default;
+  opacity: 0.7;
+}
+
+label.radio-label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 10px;
+  user-select: none;
+}
+
+.radio-text {
+  vertical-align: top;
+}
+
+.hard-mode-selector {
+  margin-left: 32px;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.hard-mode-checkbox {
+  accent-color: #4a90e2;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.hard-mode-checkbox:disabled {
+  accent-color: #b0b8c1;
+  cursor: default;
+  opacity: 0.7;
+}
+
+.question-circle {
+  vertical-align: middle;
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
