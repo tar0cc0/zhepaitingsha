@@ -8,16 +8,25 @@ const allTiles = [
   1, 2, 3, 4, 5, 6, 7, 8, 9,
 ];
 
-function generateWaitingTiles() {
-  let numOfTiles = 13;
-
+export function generateWaitingTiles(numOfTiles, enableHardMode) {
   while (true) {
     // Randomly sample tiles
     let sampleTiles = _.sampleSize(allTiles, numOfTiles);
 
     let waitedTiles = getWaitedTiles(sampleTiles);
-    if (waitedTiles.length > 0) return [ sampleTiles, waitedTiles ];
+
+    if (enableHardMode) {
+      // In hard mode, only return if there are at least 3 waited tiles and they are not 147/258/369
+      if (waitedTiles.length >= 3 && !waitedTiles.every(t => t % 3 === waitedTiles[0] % 3)) return [ sampleTiles, waitedTiles ];
+    }
+    else {
+      if (waitedTiles.length > 0) return [ sampleTiles, waitedTiles ];
+    }
   }
+}
+
+export function getRandomSuit() {
+  return _.sample(['m', 'p', 's']);
 }
 
 // Export for unit tests
@@ -27,7 +36,7 @@ export function getWaitedTiles(tiles) {
   // For each tile from 1 to 9, insert it into sample tiles and check if it's winning
   for (let tile = 1; tile <= 9; tile++) {
     // Ignore tile if it already appeared 4 times
-    if (tiles.filter(val => val == tile).length >= 4) continue;
+    if (tiles.filter(val => val === tile).length >= 4) continue;
 
     tiles.push(tile);
     tiles.sort();
@@ -68,10 +77,10 @@ function getAvailablePairs(tiles) {
   let availablePairs = [];
 
   for (let i = 0; i < tiles.length; i++) {
-    if (i > 0 && tiles[i] == tiles[i - 1]) continue; // Skip duplicates
+    if (i > 0 && tiles[i] === tiles[i - 1]) continue; // Skip duplicates
 
     let currentTile = tiles[i];
-    if (tiles.filter(val => val == currentTile).length >= 2) {
+    if (tiles.filter(val => val === currentTile).length >= 2) {
       availablePairs.push(currentTile);
     }
   }
@@ -80,13 +89,13 @@ function getAvailablePairs(tiles) {
 }
 
 function isTripletsAndSequences(tiles) {
-  if (tiles.length == 0) return true;
+  if (tiles.length === 0) return true;
   if (tiles.length < 3) return false;
 
   let firstTile = tiles[0];
 
   // Check triplet
-  if (firstTile == tiles[1] && firstTile == tiles[2]) {
+  if (firstTile === tiles[1] && firstTile === tiles[2]) {
     // Remove the triplet, then check recursively
     let tilesCopy = tiles.slice();
     tilesCopy.splice(0, 3);
