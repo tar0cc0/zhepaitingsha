@@ -24,7 +24,7 @@ function renderNewTiles() {
 }
 
 function getRandomTilesWithSuit() {
-  let numOfTiles = document.querySelector('input[name="number-of-tiles"]:checked').value;
+  let numOfTiles = parseInt(document.querySelector('input[name="number-of-tiles"]:checked').value);
   let enableHardMode = document.getElementById('enable-hard-mode').checked;
   let [ waitingTiles, waitedTiles ] = generateWaitingTiles(numOfTiles, enableHardMode);
   let suit = getRandomSuit();
