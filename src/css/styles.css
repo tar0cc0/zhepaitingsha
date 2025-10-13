@@ -1,3 +1,8 @@
+/* Hide i18n text before loading translation */
+[text-i18n] {
+  visibility: hidden;
+}
+
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background-color: #f7f7f7;
@@ -46,7 +51,7 @@ button:hover {
   align-items: center;
   justify-content: center;
   max-width: 900px;
-  margin: 32px auto;
+  margin: 32px auto 20px auto;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
@@ -67,9 +72,17 @@ a:hover {
   text-decoration: underline;
 }
 
+a:disabled, a[aria-disabled="true"] {
+  color: #b0b8c1;
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  /* opacity: 0.7; */
+}
+
 .button-container {
   display: flex;
-  gap: 10px;
+  gap: 16px;
 }
 
 #reveal-waited-tiles, #next-puzzle {
@@ -148,4 +161,8 @@ label.radio-label {
   vertical-align: middle;
   margin-bottom: 4px;
   margin-left: 4px;
+}
+
+.footer {
+  text-align: center;
 }

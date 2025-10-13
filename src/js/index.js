@@ -1,8 +1,10 @@
 "use strict";
 
 import { generateWaitingTiles, getRandomSuit } from './mjutil.js';
+import langData from '../lang/lang.json' with { type: "json" };
 
 document.addEventListener('DOMContentLoaded', function() {
+  internationalize();
   renderNewTiles();
 });
 
@@ -14,6 +16,33 @@ document.getElementById('reveal-waited-tiles').addEventListener('click', functio
   document.getElementById('waited-tiles').style.visibility = 'visible';
   this.disabled = true;
 });
+
+// Disable the link for current language
+document.querySelectorAll('.lang-link').forEach(link => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const lang = urlParams.get('lang') || 'zh';
+  if (link.id === `lang-${lang}`) {
+    link.classList.add('disabled');
+    link.setAttribute('aria-disabled', 'true');
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+    });
+  }
+});
+
+// Based on URL parameter "lang", replace text with translation for elements with attribute text-i18n
+function internationalize() {
+  const elementsWithI18n = document.querySelectorAll('[text-i18n]');
+  const urlParams = new URLSearchParams(window.location.search);
+  const lang = urlParams.get('lang') || 'zh';  // Default to Chinese
+  for (let elem of elementsWithI18n) {
+    elem.innerHTML = elem.innerHTML.replace(/{{(.*?)}}/g, function($0) {  // Match every occurrence of "{{key}}"
+      let key = $0.slice(2, -2);  // Extract "key" from "{{key}}"
+      return langData[key][lang];
+    });
+    elem.style.visibility = 'visible';  // Make element visible after translation is loaded
+  }
+}
 
 function renderNewTiles() {
   let [ waitingTiles, waitedTiles ] = getRandomTilesWithSuit();
