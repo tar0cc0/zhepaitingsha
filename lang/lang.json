@@ -9,11 +9,11 @@
   },
   "revealWaitedTiles": {
     "zh": "显示听牌",
-    "en": "Show Answer"
+    "en": "Show Waits"
   },
   "nextPuzzle": {
     "zh": "下一题",
-    "en": "Next Puzzle"
+    "en": "Next Hand"
   },
   "numberOfTiles": {
     "zh": "选择牌数:",
