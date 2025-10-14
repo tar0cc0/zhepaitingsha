@@ -10,7 +10,7 @@ To get started, visit the link below:
 
 ## Tech Stack
 
-The project was created using vanilla HTML/CSS/JavaScript so that it can be hosted as a GitHub page. `npm` is used for unit tests.
+The project was created using vanilla HTML/CSS/JavaScript and hosted as a GitHub page. `npm` is used for unit tests.
 
 ## Run Unit Tests
 
