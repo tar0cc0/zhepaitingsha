@@ -84,13 +84,30 @@ button:hover {
   margin-top: 2.6rem;
 }
 
+.number-of-tiles-selector {
+  display: flex;
+  flex-direction: row;
+  line-height: 0.9rem;
+  align-items: center;
+}
+
+.number-of-tiles-text {
+  font-size: 0.9rem;
+}
+
+label.radio-label {
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  user-select: none;
+}
+
 input.number-of-tiles-input {
   accent-color: #4a90e2;
   width: 0.85rem;
   height: 0.85rem;
-  margin-bottom: 0.12rem;
   margin-right: 0.3rem;
-  vertical-align: middle;
+  vertical-align: bottom;
   cursor: pointer;
 }
 
@@ -98,21 +115,6 @@ input.number-of-tiles-input:disabled {
   accent-color: #b0b8c1;
   cursor: default;
   opacity: 0.7;
-}
-
-label.radio-label {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-top: 0.1rem;
-  margin-right: 0.3rem;
-  user-select: none;
-}
-
-.radio-text {
-  vertical-align: top;
-  font-size: 0.9rem;
 }
 
 .hard-mode-selector {
@@ -126,7 +128,7 @@ label.radio-label {
   width: 0.85rem;
   height: 0.85rem;
   margin-right: 0.5rem;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.35rem;
   vertical-align: middle;
   cursor: pointer;
 }
@@ -214,11 +216,13 @@ a:disabled, a[aria-disabled="true"] {
     margin-top: 3rem;
   }
 
-  input.number-of-tiles-input {
-    width: 0.95rem;
-    height: 0.95rem;
-    margin-bottom: 0.1rem;
-    margin-right: 0.5rem;
+  .number-of-tiles-selector {
+    line-height: 1rem;
+  }
+
+  .number-of-tiles-text {
+    margin-top: 0.1rem;
+    font-size: 1rem;
   }
 
   label.radio-label {
@@ -226,8 +230,10 @@ a:disabled, a[aria-disabled="true"] {
     font-size: 1rem;
   }
 
-  .radio-text {
-    font-size: 1rem;
+  input.number-of-tiles-input {
+    width: 0.85rem;
+    height: 0.85rem;
+    margin-right: 0.5rem;
   }
 
   .hard-mode-selector {
@@ -236,11 +242,15 @@ a:disabled, a[aria-disabled="true"] {
     font-size: 1rem;
   }
 
+  .hard-mode-text {
+    margin-bottom: 0.8rem;
+  }
+
   .hard-mode-checkbox {
-    width: 0.95rem;
-    height: 0.95rem;
+    width: 0.85rem;
+    height: 0.85rem;
     margin-right: 0.5rem;
-    margin-bottom: 0.37rem;
+    margin-bottom: 0.35rem;
   }
 
   .question-circle {
