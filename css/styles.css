@@ -17,7 +17,7 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 56rem;
-  margin: 2rem 0.6rem 0.6rem 0.6rem;
+  margin: 7rem 0.6rem 0.6rem 0.6rem;
   background: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.07);
@@ -47,6 +47,7 @@ button {
   cursor: pointer;
   font-size: 0.8rem;
   transition: background 0.2s;
+  touch-action: none;
 }
 
 button:disabled {
@@ -54,14 +55,17 @@ button:disabled {
   color: #f0f0f0;
   cursor: default;
   opacity: 0.7;
+  touch-action: none;
 }
 
 button:disabled:hover {
   background: #b0b8c1;
+  touch-action: none;
 }
 
 button:hover {
   background: #357ab8;
+  touch-action: none;
 }
 
 #reveal-waited-tiles, #next-puzzle {
@@ -100,7 +104,7 @@ label.radio-label {
   align-items: center;
   font-size: 0.9rem;
   cursor: pointer;
-  margin-left: 0.4rem;
+  margin-left: 0.5rem;
   text-align: end;
   user-select: none;
 }
@@ -200,8 +204,8 @@ a:disabled, a[aria-disabled="true"] {
   }
 
   .tile-img {
-    width: 3.5rem;
-    height: 5rem;
+    width: 3.22rem;
+    height: 4.6rem;
   }
 
   .button-container {
