@@ -19,6 +19,14 @@ $ npm install --save-dev jest  # Install jest if not yet
 $ npm test
 ```
 
+## Deploy to GitHub Pages
+
+The GitHub page targets the `gh-pages` branch where the `/src` folder is maintained as a subtree.
+
+```shell
+$ git subtree push --prefix src origin gh-pages  # Push latest version of /src as subtree to gh-pages branch
+```
+
 ## Credit
 
 Mahjong tile images used in this project were generated using the open source tool:
@@ -32,3 +40,7 @@ https://www.zhihu.com/column/c_1759702061858566144
 https://mj-dragon.com/wait/basic/machi-five.html
 
 https://hinakin.main.jp/mckonweb/
+
+Deploying a subfolder to GitHub Pages:
+
+https://gist.github.com/cobyism/4730490?permalink_comment_id=4736084
