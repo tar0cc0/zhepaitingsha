@@ -96,9 +96,12 @@ button:hover {
 }
 
 label.radio-label {
+  display: flex;
+  align-items: center;
   font-size: 0.9rem;
   cursor: pointer;
-  margin-right: 0.3rem;
+  margin-left: 0.4rem;
+  text-align: end;
   user-select: none;
 }
 
@@ -107,7 +110,7 @@ input.number-of-tiles-input {
   width: 0.85rem;
   height: 0.85rem;
   margin-right: 0.3rem;
-  vertical-align: bottom;
+  vertical-align: center;
   cursor: pointer;
 }
 
@@ -226,7 +229,8 @@ a:disabled, a[aria-disabled="true"] {
   }
 
   label.radio-label {
-    margin-right: 0.62rem;
+    margin-left: 0.4rem;
+    margin-top: 0.1rem;
     font-size: 1rem;
   }
 
