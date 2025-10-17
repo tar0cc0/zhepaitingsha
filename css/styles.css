@@ -11,6 +11,23 @@ body {
   padding: 0;
 }
 
+a {
+  color: #4a90e2;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:disabled, a[aria-disabled="true"] {
+  color: #b0b8c1;
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  /* opacity: 0.7; */
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -171,30 +188,15 @@ input.number-of-tiles-input:disabled {
 }
 
 .footer {
+  margin-bottom: 1.4rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  line-height: 1rem;
   font-size: 0.9rem;
 }
 
-a {
-  color: #4a90e2;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a:disabled, a[aria-disabled="true"] {
-  color: #b0b8c1;
-  pointer-events: none;
-  cursor: default;
-  text-decoration: none;
-  /* opacity: 0.7; */
-}
-
 #lang-zh, #lang-en {
-  line-height: 0.9rem;
   margin-top: 0.2rem;
 }
 
@@ -207,11 +209,15 @@ a:disabled, a[aria-disabled="true"] {
   margin-right: 0.5rem;
 }
 
+#footer-dash {
+  margin-top: 0.05rem;
+}
+
 #github-icon {
   width: 1rem;
   height: 1rem;
   margin-left: 0.5rem;
-  margin-top: 0.1rem;
+  margin-top: 0.35rem;
 }
 
 /* Styles for desktop devices */
@@ -293,22 +299,18 @@ a:disabled, a[aria-disabled="true"] {
   }
 
   .footer {
+    line-height: 1.1rem;
     font-size: 1rem;
   }
 
-  #lang-zh, #lang-en {
-    line-height: 1rem;
-    margin-top: 0.3rem;
-  }
-
   #footer-dash {
-    margin-top: 0.05rem;
+    margin-top: 0.1rem;
   }
 
   #github-icon {
     width: 1.1rem;
     height: 1.1rem;
     margin-left: 0.5rem;
-    margin-top: 0.3rem;
+    margin-top: 0.4rem;
   }
 }
