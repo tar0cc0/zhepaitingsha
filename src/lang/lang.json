@@ -25,6 +25,6 @@
   },
   "hardModeHelp": {
     "zh": "仅生成至少三面听且听牌不在同一条筋（147，258，369）上的牌型",
-    "en": "Only generate hands that wait for at least 3 different tiles, which are not 147, 258 or 369"
+    "en": "Will only generate hands that wait for at least 3 different tiles, which are not 147, 258 or 369"
   }
 }

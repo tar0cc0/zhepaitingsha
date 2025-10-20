@@ -18,21 +18,31 @@ export function generateWaitingTiles(numOfTiles, enableHardMode) {
     if (enableHardMode) {
       // In hard mode, only return if there are at least 3 waited tiles and they are not 147/258/369
       if (waitedTiles.length >= 3 && !waitedTiles.every(t => t % 3 === waitedTiles[0] % 3)) {
-        if (numOfTiles !== 7) return [ sampleTiles, waitedTiles ];
-        else {
+        if (numOfTiles === 7) {
           // For 7 tiles, ignore the case where there are 2 consecutive tiles which are too far apart, e.g. 2223678
           // Such cases are relatively easy to solve, hence we want to avoid them in hard mode
           let hasDiffOfAtLeast3 = false;
           for (let i = 1; i < sampleTiles.length; i++) {
             if (sampleTiles[i] >= sampleTiles[i - 1] + 3) hasDiffOfAtLeast3 = true;
           }
-          if (!hasDiffOfAtLeast3) return [ sampleTiles, waitedTiles ];
+          if (hasDiffOfAtLeast3) continue;
         }
       }
+      else continue;
     }
     else {
-      if (waitedTiles.length > 0) return [ sampleTiles, waitedTiles ];
+      if (waitedTiles.length <= 0) continue;
     }
+
+    if (numOfTiles > 4) {
+      if (last100Hands.includes(sampleTiles.toString())) continue;
+      else {
+        last100Hands.push(sampleTiles.toString());
+        if (last100Hands.length > 100) last100Hands.shift();
+      }
+    }
+
+    return [ sampleTiles, waitedTiles ];
   }
 }
 
@@ -127,6 +137,8 @@ function isTripletsAndSequences(tiles) {
 
   return false;
 }
+
+var last100Hands = [];
 
 // Unused
 function generateWinningTiles() {
