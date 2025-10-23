@@ -83,7 +83,8 @@ function renderTiles(containerId, tiles) {
 
   tiles.forEach(tile => {
     const img = document.createElement('img');
-    img.src = `./images/tiles/${tile}.png`;
+    // Tile images are placed in /src/public so that vite bundling picks them up
+    img.src = `/zhepaitingsha/tiles/${tile}.png`;  // TODO: change base to '/' when deploying to custom domain
     img.className = 'tile-img';
     img.alt = tile;
     container.appendChild(img);

@@ -23,6 +23,9 @@ $ npm install --save-dev jest  # Install jest if not yet
 $ npm test
 ```
 
+npm install lodash-es
+npm install --save-dev vite
+
 ## Deploy to GitHub Pages
 
 The GitHub page targets the `gh-pages` branch where the `/src` folder is maintained as a subtree.

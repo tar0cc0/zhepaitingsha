@@ -1,5 +1,7 @@
 "use strict";
 
+import { sample, sampleSize } from 'lodash-es';
+
 // A number suit has 36 tiles in total
 const allTiles = [
   1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -11,7 +13,7 @@ const allTiles = [
 export function generateWaitingTiles(numOfTiles, enableHardMode) {
   while (true) {
     // Randomly sample tiles
-    let sampleTiles = _.sampleSize(allTiles, numOfTiles);
+    let sampleTiles = sampleSize(allTiles, numOfTiles);
 
     let waitedTiles = getWaitedTiles(sampleTiles);
 
@@ -47,7 +49,7 @@ export function generateWaitingTiles(numOfTiles, enableHardMode) {
 }
 
 export function getRandomSuit() {
-  return _.sample(['m', 'p', 's']);
+  return sample(['m', 'p', 's']);
 }
 
 // Export for unit tests
@@ -145,7 +147,7 @@ function generateWinningTiles() {
   let numOfTiles = 14;
 
   while (true) {
-    let sampleTiles = _.sampleSize(allTiles, numOfTiles);
+    let sampleTiles = sampleSize(allTiles, numOfTiles);
     sampleTiles.sort();
     if (isWin(sampleTiles)) return sampleTiles;
   }
