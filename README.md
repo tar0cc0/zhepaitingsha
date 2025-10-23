@@ -14,24 +14,40 @@ https://tar0cc0.github.io/zhepaitingsha/?lang=en
 
 ## Tech Stack
 
-The project was created using vanilla HTML/CSS/JavaScript and hosted as a GitHub page. `npm` is used for unit tests.
+The project was created using vanilla HTML/CSS/JavaScript and hosted with GitHub Pages. [Vite](https://github.com/vitejs/vite) is used for project bundling. [Jest](https://github.com/jestjs/jest) is used for unit tests.
 
 ## Run Unit Tests
 
 ```shell
-$ npm install --save-dev jest  # Install jest if not yet
 $ npm test
 ```
 
-npm install lodash-es
-npm install --save-dev vite
+## Test the App Locally
+
+```shell
+$ npm run dev
+```
+
+Or:
+
+```shell
+$ npm run preview  # Need to be run after the build
+```
+
+## Build
+
+```shell
+$ npm run build
+```
+
+Build output will be placed in the `/dist` folder.
 
 ## Deploy to GitHub Pages
 
-The GitHub page targets the `gh-pages` branch where the `/src` folder is maintained as a subtree.
+The GitHub page targets the `gh-pages` branch where the `/dist` folder is maintained as a subtree.
 
 ```shell
-$ git subtree push --prefix src origin gh-pages  # Push latest version of /src as subtree to gh-pages branch
+$ git subtree push --prefix dist origin gh-pages  # Push latest version of /dist as subtree to gh-pages branch
 ```
 
 ## Credit
