@@ -1,5 +1,7 @@
+/* Styles for index page */
+
 /* Hide i18n text before loading translation */
-[text-i18n] {
+[text-i18n-key] {
   visibility: hidden;
 }
 
@@ -13,6 +15,7 @@ body {
 
 a {
   color: #4a90e2;
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -20,8 +23,8 @@ a:hover {
   text-decoration: underline;
 }
 
-a:disabled, a[aria-disabled="true"] {
-  color: #b0b8c1;
+a.disabled, a[aria-disabled="true"] {
+  color: #a0aec0;
   pointer-events: none;
   cursor: default;
   text-decoration: none;
@@ -196,7 +199,7 @@ input.number-of-tiles-input:disabled {
   font-size: 0.9rem;
 }
 
-#lang-zh, #lang-en {
+#lang-zh, #lang-en, #privacy-policy {
   margin-top: 0.2rem;
 }
 
@@ -209,7 +212,20 @@ input.number-of-tiles-input:disabled {
   margin-right: 0.5rem;
 }
 
-#footer-dash {
+#github-link {
+  margin-right: 0.5rem;
+}
+
+#privacy-policy {
+  margin-left: 0.5rem;
+}
+
+.footer-sep {
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
+
+.footer-dash {
   margin-top: 0.05rem;
 }
 
@@ -220,7 +236,8 @@ input.number-of-tiles-input:disabled {
   margin-top: 0.35rem;
 }
 
-/* Styles for desktop devices */
+/* Styles for index page - desktop devices */
+
 @media (min-width: 641px) {
   .container {
     margin: 2rem auto 0.6rem auto;
@@ -303,7 +320,7 @@ input.number-of-tiles-input:disabled {
     font-size: 1rem;
   }
 
-  #footer-dash {
+  .footer-dash {
     margin-top: 0.1rem;
   }
 
@@ -312,5 +329,54 @@ input.number-of-tiles-input:disabled {
     height: 1.1rem;
     margin-left: 0.5rem;
     margin-top: 0.4rem;
+  }
+}
+
+/* Styles for privacy page */
+
+.privacy-container {
+  max-width: 56rem;
+  margin: 3rem 0.6rem;
+  padding: 0 1rem;
+}
+
+.privacy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-markdown-body {
+  line-height: 1.6;
+}
+
+ul, ol {
+  margin: 0 0 1rem 1.5rem;
+}
+
+.privacy-lang-toggle {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.privacy-lang-toggle span {
+  line-height: 1;
+}
+
+.privacy-content-section {
+  display: block;
+}
+
+.privacy-content-section.disabled {
+  display: none;
+}
+
+/* Styles for privacy page - desktop devices */
+
+@media (min-width: 641px) {
+  .privacy-container {
+    margin: 3rem auto;
   }
 }
