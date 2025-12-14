@@ -6,11 +6,11 @@ A Mahjong training tool for practicing single-suit ready hands. Hands are random
 
 网页链接如下：
 
-https://zhepaitingsha.net/
+https://zpts.net/
 
 To get started, visit the link below:
 
-https://zhepaitingsha.net/?lang=en
+https://zpts.net/?lang=en
 
 ## Tech Stack
 
