@@ -50,6 +50,8 @@ The GitHub page targets the `gh-pages` branch where the `/dist` folder is mainta
 $ git subtree push --prefix dist origin gh-pages  # Push latest version of /dist as subtree to gh-pages branch
 ```
 
+Note: GitHub automatically pushes a commit with a `CNAME` file to the `gh-pages` branch when a custom domain is set up for the first time. To avoid future merge conflicts with the `main` branch, this commit has been force-removed and replaced with a manual commit on `main` in the `/dist` folder instead.
+
 ## Credit
 
 Mahjong tile images used in this project were generated using the open source tool:
