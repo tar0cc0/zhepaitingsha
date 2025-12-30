@@ -1,4 +1,4 @@
-# 这牌听啥啊 / What Tiles Am I Waiting For?
+# 这牌听啥啊 / What Does This Hand Wait For?
 
 一款麻将清一色听牌训练工具，随机生成手牌，支持4张/7张/10张/13张牌型，对新手友好。
 
