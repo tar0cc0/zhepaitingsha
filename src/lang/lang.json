@@ -1,11 +1,11 @@
 {
   "title": {
     "zh": "这牌听啥啊",
-    "en": "What tiles does this hand wait for?"
+    "en": "What does this hand wait for?"
   },
   "pageTitle": {
     "zh": "这牌听啥啊",
-    "en": "What tiles does this hand wait for?"
+    "en": "What does this hand wait for?"
   },
   "revealWaitedTiles": {
     "zh": "显示听牌",
